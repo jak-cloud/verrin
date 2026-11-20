@@ -86,6 +86,35 @@
     });
   }
 
+  /* ---- Cookie consent ---- */
+  (function cookieConsent() {
+    var KEY = "verrin-cookie-consent";
+    try { if (localStorage.getItem(KEY)) return; } catch (e) { return; }
+
+    var bar = document.createElement("div");
+    bar.className = "cookie-bar";
+    bar.setAttribute("role", "dialog");
+    bar.setAttribute("aria-label", "Cookie notice");
+    bar.innerHTML =
+      '<p>We use essential cookies to make this site work, and we\'d like to understand how it\'s used. ' +
+      'See our <a href="cookies.html">Cookie Policy</a>.</p>' +
+      '<div class="cookie-actions">' +
+      '<button type="button" class="btn btn-ghost" data-cookie="decline">Decline</button>' +
+      '<button type="button" class="btn btn-primary" data-cookie="accept">Accept</button>' +
+      '</div>';
+    document.body.appendChild(bar);
+    requestAnimationFrame(function () { bar.classList.add("show"); });
+
+    function choose(val) {
+      try { localStorage.setItem(KEY, val); } catch (e) {}
+      bar.classList.remove("show");
+      setTimeout(function () { bar.remove(); }, 400);
+    }
+    bar.querySelectorAll("[data-cookie]").forEach(function (b) {
+      b.addEventListener("click", function () { choose(b.getAttribute("data-cookie")); });
+    });
+  })();
+
   icons();
   // Re-run icon creation once fonts/CDN settle
   window.addEventListener("load", icons);
