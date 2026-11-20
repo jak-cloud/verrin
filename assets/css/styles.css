@@ -376,6 +376,23 @@ p { text-wrap: pretty; }
 .band-dark .svc-list li { color: var(--on-dark-600); }
 .band-dark .svc-list li::before { border-color: #6ea0ff; }
 
+/* technology / platform strip */
+.tech-band { padding: var(--s-12) 0; background: var(--grey-50); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.tech-band .label { text-align: center; font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-400); font-weight: 600; }
+.tech-pills { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: var(--s-6) auto 0; padding: 0; max-width: 940px; }
+.tech-pills li { font-size: .92rem; font-weight: 540; color: var(--ink-700); padding: 9px 18px; border: 1px solid var(--border-strong); border-radius: var(--r-pill); background: var(--white); transition: border-color .2s var(--ease), color .2s var(--ease); }
+.tech-pills li:hover { border-color: var(--accent-line); color: var(--accent-deep); }
+
+/* metrics / proof band */
+.proof-band { padding: var(--s-16) 0; }
+.proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-8); }
+.proof-item { text-align: center; padding: 0 var(--s-2); }
+.proof-item .pn { font-size: clamp(2rem, 4vw, 2.7rem); font-weight: 700; letter-spacing: -0.02em; color: var(--ink-900); line-height: 1; }
+.on-dark .proof-item .pn { color: var(--on-dark-900); }
+.proof-item .pl { margin-top: var(--s-3); font-size: .92rem; color: var(--ink-500); }
+.on-dark .proof-item .pl { color: var(--on-dark-600); }
+@media (max-width: 720px) { .proof-grid { grid-template-columns: repeat(2, 1fr); gap: var(--s-10) var(--s-6); } }
+
 /* feature list */
 .feature {
   display: grid; grid-template-columns: 44px 1fr; gap: var(--s-4); align-items: start;
