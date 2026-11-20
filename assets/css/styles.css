@@ -365,6 +365,17 @@ p { text-wrap: pretty; }
 .service-card { position: relative; display: flex; flex-direction: column; }
 .service-card .btn-text { margin-top: auto; padding-top: var(--s-5); }
 
+/* capability bullet list inside service cards */
+.svc-list { list-style: none; margin: var(--s-4) 0 0; padding: 0; display: grid; gap: 9px; }
+.svc-list li { position: relative; padding-left: 22px; color: var(--ink-500); font-size: 0.9rem; line-height: 1.45; }
+.svc-list li::before {
+  content: ""; position: absolute; left: 1px; top: 6px;
+  width: 9px; height: 5px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent);
+  transform: rotate(-45deg); border-radius: 1px;
+}
+.band-dark .svc-list li { color: var(--on-dark-600); }
+.band-dark .svc-list li::before { border-color: #6ea0ff; }
+
 /* feature list */
 .feature {
   display: grid; grid-template-columns: 44px 1fr; gap: var(--s-4); align-items: start;
